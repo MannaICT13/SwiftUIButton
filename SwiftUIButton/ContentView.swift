@@ -11,28 +11,54 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var text = ""
+    @State var placeholder = ""
+    @State var save = ""
   
     
     
     var body: some View {
         
-        VStack{
+        
+        
+        
+        VStack(alignment:.center,spacing: 50){
             
             
+            Text("\(save)").font(.headline)
+            
+            
+            VStack{
+                   
+                   
+                TextField(placeholder, text: $text).font(.headline)
+                   
+                   Divider()
+                       .background(Color.black)
+                   
 
-            Button(action:{}){
-                
-                HStack{
-                    Image(systemName: "checkmark.rectangle.fill")
-                    Text("Save").font(.system(size: 25))
-                }
-                
-                }.frame(width: 150, height: 50)
-                .background(Color.black)
-                .cornerRadius(12)
-                
-            }
+                   Button(action:{
+                    
+                    self.save = self.text
+                    
+                   }){
+                       
+                       HStack{
+                        Image(systemName: "checkmark.rectangle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                           Text("Save").font(.system(size: 25))
+                       }
+                       
+                       }.frame(width: 200, height: 50)
+                       .background(Color.black)
+                       .cornerRadius(12)
+                       
+                   }
+                   
             
+        }
+   
             
         }
         
